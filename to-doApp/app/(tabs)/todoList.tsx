@@ -1,6 +1,6 @@
 import { Image, StyleSheet, Platform, FlatList, View} from 'react-native';
-import { ThemedText } from "@/app-example/components/ThemedText";
-import { ThemedView } from "@/app-example/components/ThemedView";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
 import { Button, CheckBox } from 'react-native-elements';
 import { useTodoContext } from '../TodoContext';
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyleSheet, TextInput, Button, Alert } from "react-native";
-import { ThemedText } from "@/app-example/components/ThemedText";
-import { ThemedView } from "@/app-example/components/ThemedView";
+import { ThemedText } from "@/components/ThemedText";
+import { ThemedView } from "@/components/ThemedView";
 import { useTodoContext } from "../TodoContext";
 import Toast from "react-native-toast-message";
 
