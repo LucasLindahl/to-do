@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput, Button, Alert } from "react-native";
+import { StyleSheet, TextInput, Alert } from "react-native";
+import { Button } from "react-native-elements"
 import { ThemedText } from "@/components/ThemedText";
 import { ThemedView } from "@/components/ThemedView";
 import { useTodoContext } from "../TodoContext";
 import Toast from "react-native-toast-message";
+import { View } from "react-native-animatable";
 
 
 export default function AddTodoScreen() {
@@ -15,15 +17,12 @@ export default function AddTodoScreen() {
       Alert.alert("Error", "Todo cannot be empty!");
       return;
     }
-    // Add new todo
     addTodo(todoText)
     Toast.show({
         type: 'success',
         text1: "Todo added to list!",
         visibilityTime: 3000
     })
-    Alert.alert("New To-do added!")
-    // Clear the input
     setTodoText("");
   };
 
@@ -36,7 +35,7 @@ export default function AddTodoScreen() {
         value={todoText}
         onChangeText={setTodoText}
       />
-      <Button title="Add Todo" onPress={handleAddTodo} />
+      <Button title="Add Todo" onPress={handleAddTodo} style={styles.buttonContainer} />
     </ThemedView>
   );
 }
@@ -52,7 +51,11 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 8,
     padding: 8,
+    marginTop: 4,
     marginBottom: 16,
     color: "white"
   },
+  buttonContainer: {
+    alignSelf: "center",
+  }
 });
