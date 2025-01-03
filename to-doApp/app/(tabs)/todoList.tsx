@@ -15,7 +15,7 @@ export default function ListScreen() {
   // Ref for managing strikethrough line width animation values
   const strikethroughAnimations = useRef(
     todos.reduce((acc, todo) => {
-      acc[todo.id] = new Animated.Value(todo.completed ? 1 : 0); // Start with 1 if completed, 0 otherwise
+      acc[todo.id] = new Animated.Value(todo.completed ? 1 : 0); 
       return acc;
     }, {} as Record<string, Animated.Value>)
   ).current;
@@ -26,9 +26,9 @@ export default function ListScreen() {
 
     // Animate the strikethrough line
     Animated.timing(strikethroughAnimations[id], {
-      toValue: completed ? 1 : 0, // 1 for full width, 0 for hidden
+      toValue: completed ? 1 : 0,
       duration: 500,
-      useNativeDriver: false, // Can't use native driver for width
+      useNativeDriver: false,
     }).start();
 
     toggleTodo(id);
@@ -58,19 +58,16 @@ export default function ListScreen() {
                   containerStyle={styles.checkbox}
                 />
                 <View style={{ flex: 1, position: "relative" }}>
-                  {/* Text */}
                   <Animated.Text style={[styles.todoText, { color: item.completed ? "gray" : "white" }]}>
                     {item.text}
                   </Animated.Text>
-
-                  {/* Animated Strikethrough Line */}
                   <Animated.View
                     style={[
                       styles.strikethroughLine,
                       {
                         width: strikethroughAnimations[item.id].interpolate({
                           inputRange: [0, 1],
-                          outputRange: ["0%", "100%"], // Animate from 0% to 100% width
+                          outputRange: ["0%", "100%"],
                         }),
                       },
                     ]}
@@ -89,19 +86,16 @@ export default function ListScreen() {
                     containerStyle={styles.checkbox}
                   />
                   <View style={{ flex: 1, position: "relative" }}>
-                    {/* Text */}
                     <Animated.Text style={[styles.todoText, { color: item.completed ? "gray" : "white" }]}>
                       {item.text}
                     </Animated.Text>
-
-                    {/* Animated Strikethrough Line */}
                     <Animated.View
                       style={[
                         styles.strikethroughLine,
                         {
                           width: strikethroughAnimations[item.id].interpolate({
                             inputRange: [0, 1],
-                            outputRange: ["0%", "100%"], // Animate from 0% to 100% width
+                            outputRange: ["0%", "100%"],
                           }),
                         },
                       ]}
@@ -149,11 +143,11 @@ const styles = StyleSheet.create({
     position: "absolute",
     height: 1,
     backgroundColor: "white",
-    bottom: 8, // Adjust to position the line over the text
+    bottom: 8,
     left: 0,
   },
   buttonContainer: {
-    marginTop: 16,
+    marginTop: 8,
     marginBottom: 16,
     borderRadius: 16,
   },
